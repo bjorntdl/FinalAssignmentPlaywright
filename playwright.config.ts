@@ -10,7 +10,7 @@ import { defineConfig, devices } from "@playwright/test";
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  globalSetup: "./tests/auth.setup/global-setup",
+  // globalSetup: "./tests/auth.setup/global-setup",
   //rather than specifying the setup for the project, due to the simplicity of it i declared it globally
   testDir: "./tests",
   /* Run tests in files in parallel */
@@ -40,6 +40,7 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
+    { name: "setup", testMatch: /.*\.setup\.ts/ },
     {
       name: "chromium",
       use: {
