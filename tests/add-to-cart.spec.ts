@@ -13,7 +13,7 @@ test("Add item to cart and checkout", async ({ page }) => {
   await homePage.clickButton(homePage.addToCartBtn);
   await homePage.clickButton(homePage.viewCart);
   await homePage.assertPageUrl("/view_cart");
-  await cartPage.verifyCartPriceUI();
+  await cartPage.verifyCartDetailsUI();
 
   await cartPage.verifyCartPriceLogically(storedPriceForItem);
 

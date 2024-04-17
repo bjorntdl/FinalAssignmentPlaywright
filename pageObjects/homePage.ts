@@ -35,7 +35,8 @@ export default class HomePage {
     var productDetails = await this.productInfo.allInnerTexts();
     var specifiedProduct = productDetails.slice(0, 1).toString();
     var productPrice = specifiedProduct.slice(0, 7);
-    return productPrice;
+    var productTitle = specifiedProduct.slice(9, 17);
+    return [productPrice, productTitle];
   }
 
   async blockAds() {
