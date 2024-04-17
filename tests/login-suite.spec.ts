@@ -17,11 +17,11 @@ const generatedUser = new CredentialsGenerator();
 //   );
 // });
 
-test.skip("Login with existing user", async ({ page, context }) => {
-  await context.clearCookies();
-  const homePage = new HomePage(page);
-  const loginPage = new SignupLoginPage(page);
-  await homePage.navigateToPage("/login");
-  await loginPage.loginForm("hedipi6572@acname.com", "password");
-  await homePage.assertPageUrl("/");
-});
+// test.skip("Login with existing user", async ({ page, context }) => {
+//   await context.clearCookies();
+//   const homePage = new HomePage(page);
+//   const loginPage = new SignupLoginPage(page);
+//   await homePage.navigateToPage("/login");
+//   await loginPage.loginForm("hedipi6572@acname.com", "password");
+//   await homePage.assertPageUrl("/");
+// });

@@ -20,6 +20,7 @@ test("Add item to cart and checkout", async ({ page }) => {
   await homePage.clickButton(cartPage.checkOutBTN);
 
   await homePage.assertPageUrl("/checkout");
+  await homePage.blockAds();
 
   await homePage.clickButton(cartPage.checkOutBTN);
   await checkOut.validateTitle();

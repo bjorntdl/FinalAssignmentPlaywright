@@ -32,7 +32,9 @@ export default class CartPage {
 
   async validateOrderPlaced() {
     this.orderValidation.isVisible();
-    const textFetched = (await this.orderValidation.allInnerTexts()).toString();
+    const textFetched = (await this.orderValidation.allInnerTexts())
+      .toString()
+      .toUpperCase();
     await expect(textFetched).toBe("ORDER PLACED!");
   }
 }

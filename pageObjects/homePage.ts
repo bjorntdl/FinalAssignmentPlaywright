@@ -37,4 +37,13 @@ export default class HomePage {
     var productPrice = specifiedProduct.slice(0, 7);
     return productPrice;
   }
+
+  async blockAds() {
+    await this.page.route("**/*", (route) => {
+      route.request().url().startsWith("https://googleads.")
+        ? route.abort()
+        : route.continue();
+      return;
+    });
+  }
 }
