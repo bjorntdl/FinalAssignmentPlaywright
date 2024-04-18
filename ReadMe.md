@@ -17,7 +17,13 @@ The projects goes over two scenarios:
 Use the package manager [npm](https://www.npmjs.com/) to install Playwright.
 
 ```bash
-npm install
+npm install --save-dev
+```
+
+## Install playwright
+
+```bash
+npx install playwright
 ```
 
 ## Running the project
