@@ -13,19 +13,19 @@ export default class CartPage {
     this.page = page;
     this.cartPriceUI = page
       .locator("[class='cart_price']")
-      .filter({ hasText: "Rs. 500" });
+      .filter({ hasText: "Rs. 500" }); //filter needs to change for longevity purposes in case we will evaluate a different item
     this.cartPriceBE = page.locator("[class='cart_price']");
     this.itemInCartTitleUI = page
       .getByRole("link")
-      .filter({ hasText: "Blue Top" });
+      .filter({ hasText: "Blue Top" }); //filter needs to change for longevity purposes in case we will evaluate a different item
     this.itemInCartTitleBE = page.locator("[href='/product_details/1']");
     this.checkOutBTN = page.locator("[class='btn btn-default check_out']");
     this.orderValidation = page.getByTestId("order-placed");
   }
 
-  async verifyCartDetailsUI() {
-    await expect(this.cartPriceUI).toHaveText("Rs. 500");
-    await expect(this.itemInCartTitleUI).toHaveText("Blue Top");
+  async verifyCartDetailsUI(price: string, title: string) {
+    await expect(this.cartPriceUI).toHaveText(price);
+    await expect(this.itemInCartTitleUI).toHaveText(title);
   }
 
   async verifyCartPriceLogically(storedDetails: string[]) {

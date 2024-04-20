@@ -15,7 +15,7 @@ test("Add item to cart and checkout", async ({ page }) => {
   await basePage.clickButton(homePage.addToCartBtn);
   await basePage.clickButton(homePage.viewCart);
   await basePage.assertPageUrl("/view_cart");
-  await cartPage.verifyCartDetailsUI();
+  await cartPage.verifyCartDetailsUI("Rs. 500", "Blue Top");
 
   await cartPage.verifyCartPriceLogically(storedPriceForItem);
 
