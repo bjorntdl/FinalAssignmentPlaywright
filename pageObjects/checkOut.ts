@@ -13,7 +13,8 @@ export default class CheckOut {
   readonly clickPayBTN: Locator;
 
   constructor(page: Page) {
-    this.paymentPageTitle = page.locator("[class='active']");
+    // this.paymentPageTitle = page.locator("[class='active']");
+    this.paymentPageTitle = page.getByText("Payment");
     this.nameOnCard = page.getByTestId("name-on-card");
     this.creditCardNumber = page.getByTestId("card-number");
     this.cVV = page.getByTestId("cvc");
@@ -23,7 +24,9 @@ export default class CheckOut {
   }
 
   async validateTitle() {
-    const title = (await this.paymentPageTitle.allInnerTexts()).toString();
+    const title = (
+      await this.paymentPageTitle.first().allInnerTexts()
+    ).toString();
     await expect(title).toBe("Payment");
   }
 
