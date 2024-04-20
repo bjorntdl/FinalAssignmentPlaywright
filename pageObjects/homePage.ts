@@ -12,12 +12,15 @@ export default class HomePage {
     this.viewCart = page
       .locator("[class=text-center]")
       .filter({ hasText: "View Cart" });
-    this.productInfo = page.locator("[class='productinfo text-center']");
+    this.productInfo = page
+      .locator("[class='productinfo text-center']")
+      .first();
   }
 
   async storeProductInfo() {
     var productDetails = await this.productInfo.allInnerTexts();
-    var specifiedProduct = productDetails.slice(0, 1).toString();
+    console.log(productDetails);
+    var specifiedProduct = productDetails.toString();
     var productPrice = specifiedProduct.slice(0, 7);
     var productTitle = specifiedProduct.slice(9, 17);
     return [productPrice, productTitle];
