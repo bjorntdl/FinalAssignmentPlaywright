@@ -15,36 +15,11 @@ export default class HomePage {
     this.productInfo = page.locator("[class='productinfo text-center']");
   }
 
-  async navigateToPage(url: string) {
-    await this.page.goto(url);
-  }
-
-  async assertPageUrl(url: string) {
-    await expect(this.page).toHaveURL(url);
-  }
-
-  async assertText(selector: Locator, text: string) {
-    await expect(selector).toHaveText(text);
-  }
-
-  async clickButton(selector: Locator) {
-    await selector.click();
-  }
-
   async storeProductInfo() {
     var productDetails = await this.productInfo.allInnerTexts();
     var specifiedProduct = productDetails.slice(0, 1).toString();
     var productPrice = specifiedProduct.slice(0, 7);
     var productTitle = specifiedProduct.slice(9, 17);
     return [productPrice, productTitle];
-  }
-
-  async blockAds() {
-    await this.page.route("**/*", (route) => {
-      route.request().url().startsWith("https://googleads.")
-        ? route.abort()
-        : route.continue();
-      return;
-    });
   }
 }
