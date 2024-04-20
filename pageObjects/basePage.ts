@@ -8,7 +8,7 @@ export default class BasePage {
   }
 
   async navigateToPage(url: string) {
-    await this.page.goto(url);
+    await this.page.goto(url, { waitUntil: "domcontentloaded" });
   }
 
   async assertPageUrl(url: string) {

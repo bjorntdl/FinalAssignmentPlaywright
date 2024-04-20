@@ -9,9 +9,7 @@ export default class HomePage {
   constructor(page: Page) {
     this.page = page;
     this.addToCartBtn = page.locator("[data-product-id='1']").first();
-    this.viewCart = page
-      .locator("[class=text-center]")
-      .filter({ hasText: "View Cart" });
+    this.viewCart = page.getByRole("link", { name: "View Cart" });
     this.productInfo = page
       .locator("[class='productinfo text-center']")
       .first();
@@ -19,7 +17,6 @@ export default class HomePage {
 
   async storeProductInfo() {
     var productDetails = await this.productInfo.allInnerTexts();
-    console.log(productDetails);
     var specifiedProduct = productDetails.toString();
     var productPrice = specifiedProduct.slice(0, 7);
     var productTitle = specifiedProduct.slice(9, 17);
