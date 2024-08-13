@@ -17,7 +17,7 @@ const generatedUser = new CredentialsGenerator();
 //   );
 // });
 
-// test.skip("Login with existing user", async ({ page, context }) => {
+// test("Login with existing user", async ({ page, context }) => {
 //   await context.clearCookies();
 //   const homePage = new HomePage(page);
 //   const loginPage = new SignupLoginPage(page);
