@@ -26,6 +26,19 @@ npm install --save-dev
 npx install playwright
 ```
 
+## Authenticating
+
+In order for your account to be authenticated for the rest of the tests:
+
+1. Uncomment "Login with existing user" test in login-suite.spec.ts
+2. Run the commmand below whilst you're in the root folder
+
+```bash
+npx playwright test tests/login-suite.spec.ts
+```
+
+3. You can comment it afterwards and continue with the next step
+
 ## Running the project
 
 ```bash
